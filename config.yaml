@@ -24,13 +24,7 @@ date_selection:
   year: null # null => current year
   month: 11 # November
   day_of_week: null
-  specific_dates: [
-      "2025-08-15",
-      "2025-11-07",
-      "2025-11-14",
-      "2025-11-21",
-      "2025-11-28",
-    ] # e.g., ["2025-11-07", "2025-11-14"]
+  specific_dates: ["2025-11-07", "2025-11-14", "2025-11-21", "2025-11-28"] # e.g., ["2025-11-07", "2025-11-14"]
 
 # Default party size
 party_size: 7
