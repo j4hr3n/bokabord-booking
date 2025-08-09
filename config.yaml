@@ -1,0 +1,50 @@
+endpoint_url: "https://app.bokabord.se/booking-widget/api/getTimes"
+
+# Punk Royale default meal configuration
+mealid: "28957"
+
+payload_template:
+  testmode: 0
+  date_code: ""
+  date: "" # will be set per request
+  amount: 2 # will be overridden by party_size/CLI
+  mealid: "28957"
+  mc_code: ""
+  email: ""
+  hd_meal: ""
+  hash: "6bf08036a2789c1edd750b01a3fce5ee"
+  int_test: "N"
+  lang: ""
+  # Opaque widget fields (left as-is from example payload)
+  TkI3MHBxR1JGRjUrNVE9PQ: "b3h3UHdCdVcyY3R2eVZzeUgvd0tYdz09"
+
+# Date selection: By default, all Fridays in November of current year
+# Alternatively, list specific dates under "specific_dates"
+date_selection:
+  year: null # null => current year
+  month: 11 # November
+  day_of_week: Friday
+  specific_dates: [] # e.g., ["2025-11-07", "2025-11-14"]
+
+# Default party size
+party_size: 7
+
+# Time filters for available slots (24h format HH:MM)
+time_filters:
+  earliest: "20:00"
+  latest: "22:30"
+  allowlist: [] # e.g., ["18:30", "19:00"] overrides earliest/latest if provided
+
+ntfy:
+  server: "https://ntfy.sh"
+  topic: "j4hr3n"
+  priority: default
+  title: "Punk Royale 🤘"
+
+request:
+  timeout_seconds: 20
+  user_agent: "bokabord-checker/1.0 (+https://github.com/j4hr3n)"
+  retries: 2
+
+# Print extra diagnostics and raw API payloads/responses
+debug: false
