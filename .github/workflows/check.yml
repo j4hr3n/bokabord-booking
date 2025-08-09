@@ -2,7 +2,7 @@ name: Check Punk Royale availability
 
 on:
   schedule:
-    - cron: "15 6 * * *" # daily at 06:15 UTC
+    - cron: "*/5 * * * *" # every 5 minutes
   workflow_dispatch:
     inputs:
       party:

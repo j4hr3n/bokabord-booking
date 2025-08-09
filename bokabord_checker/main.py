@@ -49,10 +49,11 @@ def load_config(path: str) -> Config:
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Check Bokabord availability for Punk Royale and notify via ntfy")
     p.add_argument("--config", default=os.environ.get("CONFIG", "config.yaml"), help="Path to config.yaml")
-    p.add_argument("--party", type=int, default=os.environ.get("PARTY_SIZE"), help="Override party size")
+    # Accept strings for env-backed defaults; convert later if non-empty
+    p.add_argument("--party", default=os.environ.get("PARTY_SIZE"), help="Override party size")
     p.add_argument("--dates", default=os.environ.get("DATES"), help="Comma-separated YYYY-MM-DD list to check")
-    p.add_argument("--month", type=int, default=os.environ.get("MONTH"), help="Month (1-12) if not using --dates")
-    p.add_argument("--year", type=int, default=os.environ.get("YEAR"), help="Year if not using --dates")
+    p.add_argument("--month", default=os.environ.get("MONTH"), help="Month (1-12) if not using --dates")
+    p.add_argument("--year", default=os.environ.get("YEAR"), help="Year if not using --dates")
     p.add_argument("--dow", default=os.environ.get("DOW", "Friday"), help="Day of week to include (e.g., Friday)")
     p.add_argument("--time-window", default=os.environ.get("TIME_WINDOW"), help="HH:MM-HH:MM inclusive window")
     p.add_argument("--allowlist", default=os.environ.get("ALLOWLIST"), help="Comma-separated explicit times to allow")
